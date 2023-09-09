@@ -1,0 +1,16 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/dylan-gallagher-705115205
+    - icon: github
+      text: Github
+      href: https://github.com/Dylan-Gallagher
+
+---
+
+Hi, I'm Dylan. I'm a second year Computer Science student at Trinity College Dublin. This is my blog where I share some of the stuff that I'm working on. 
