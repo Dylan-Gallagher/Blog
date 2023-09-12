@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dylan Gallagher">
+<meta name="dcterms.date" content="2023-09-09">
+
+<title>Dylan’s Blog - CNN Notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Dylan’s Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Dylan-Gallagher" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">CNN Notes</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Notes</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dylan Gallagher </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 9, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>I have been working through Andrew Ng’s Deep Learning Specialisation. Here are some of the notes I took during the Convolutional Neural Networks Course. Hopefully they can be of use to you. Some images are taken from the slides in the course.</p>
+<section id="notes" class="level2">
+<h2 class="anchored" data-anchor-id="notes">Notes</h2>
+<section id="foundations-of-convolutional-neural-networks" class="level3">
+<h3 class="anchored" data-anchor-id="foundations-of-convolutional-neural-networks">Foundations of Convolutional Neural Networks</h3>
+<section id="vertical-edge-detection" class="level4">
+<h4 class="anchored" data-anchor-id="vertical-edge-detection">Vertical Edge Detection</h4>
+<p>You have a filter and you ‘convolve’ it with the input image You do an element-wise product with the filter overlaying the input image in different positions. The filter for vertical edge detection typically looks something like this <span class="math display">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 \\
+1 &amp; 0 &amp; -1 \\
+1 &amp; 0 &amp; -1 \\
+\end{bmatrix}
+\]</span></p>
+</section>
+<section id="positive-and-negative-vertical-edges" class="level4">
+<h4 class="anchored" data-anchor-id="positive-and-negative-vertical-edges">Positive and Negative Vertical Edges</h4>
+<p>Distinguishes between light-to-dark and dark-to-light edges</p>
+</section>
+<section id="learning-to-detect-edges" class="level4">
+<h4 class="anchored" data-anchor-id="learning-to-detect-edges">Learning to Detect Edges</h4>
+<p>Modern DL does not explicitly define the filter, but rather sets each of the elements as a weight/parameter that the model can learn itself.</p>
+</section>
+<section id="padding" class="level4">
+<h4 class="anchored" data-anchor-id="padding">Padding</h4>
+<p>Normal convolutions have some problems. They do not use much information from the edge pixels and they also shrink the output. You can get around both of these problems by padding the border of the input with zeroes.</p>
+</section>
+<section id="size-of-output" class="level4">
+<h4 class="anchored" data-anchor-id="size-of-output">Size of output</h4>
+<p><span class="math inline">\((n+2p-f+1) \times (n+2p-f+1)\)</span></p>
+</section>
+<section id="valid-convolutions" class="level4">
+<h4 class="anchored" data-anchor-id="valid-convolutions">Valid Convolutions</h4>
+<p>No padding #### Same Convoultions Output size is the same as the input size. You can achieve this if you set <span class="math inline">\(f\)</span> and <span class="math inline">\(p\)</span> to be <span class="math display">\[p = \frac{f-1}{2}\]</span> To make this formula work, <span class="math inline">\(f\)</span> is normally odd. This has some advantages such as the filter having a central pixel.</p>
+</section>
+<section id="strided-convolutions" class="level4">
+<h4 class="anchored" data-anchor-id="strided-convolutions">Strided Convolutions</h4>
+<p>You can add a ‘stride’ parameter <span class="math inline">\(s\)</span> to the convolution. This means you ‘jump’ the filter over by <span class="math inline">\(s\)</span> pixels each time. The new formula for computing the output size is <span class="math display">\[\lfloor \frac{n+2p-f}{s} + 1\rfloor \times \lfloor \frac{n+2p-f}{s} + 1\rfloor \]</span> Where <span class="math inline">\(\lfloor x \rfloor\)</span> denotes the ‘floor’ of the expression</p>
+</section>
+<section id="convolutions-over-volume" class="level4">
+<h4 class="anchored" data-anchor-id="convolutions-over-volume">Convolutions over Volume</h4>
+<p>You can convolve a 3d input with a 3d filter. You put the 3d filter over the 3d input as you would in 2d, and you calculate the element-wise product and use that as the first cell of the output.</p>
+<p>Note: the input volume and filter need to have the same number of channels.</p>
+<p>The model can learn to detect more complex patterns such as vertical edges in only the red channel for example.</p>
+</section>
+<section id="multiple-filters" class="level4">
+<h4 class="anchored" data-anchor-id="multiple-filters">Multiple Filters</h4>
+<p>You can have multiple filters per layer If you have <span class="math inline">\(n_c'\)</span> filters, then you will have <span class="math inline">\(n_c'\)</span> outputs, which you stack to form a <span class="math inline">\(\lfloor \frac{n+2p-f}{s} + 1\rfloor \times \lfloor \frac{n+2p-f}{s} + 1\rfloor \times n_c'\)</span> output</p>
+</section>
+<section id="one-layer-of-a-cnn" class="level4">
+<h4 class="anchored" data-anchor-id="one-layer-of-a-cnn">One Layer of a CNN</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cnn-notes_files/figure-html/326952b3-49fd-4642-973d-4837dd3ff38f-1-82f7cbeb-0687-4c36-986e-0ecbf8f7fa5b.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image.png</figcaption>
+</figure>
+</div>
+</section>
+<section id="multi-layer-cnn" class="level4">
+<h4 class="anchored" data-anchor-id="multi-layer-cnn">Multi-Layer CNN</h4>
+<p>As you get deeper in the NN, you reduce height and width, while increasing the number of channels.</p>
+</section>
+<section id="pooling-layers-max-pooling" class="level4">
+<h4 class="anchored" data-anchor-id="pooling-layers-max-pooling">Pooling Layers: Max Pooling</h4>
+<p>You get the max of the corresponding region <img src="cnn-notes_files/figure-html/1f6e91b7-8517-413a-8d5c-e49f2f74b6f2-1-d861e31a-efe6-4cd8-a86d-dfdd630985b9.png" class="img-fluid" alt="image.png"> Max pooling has hyperparameters <span class="math inline">\(f\)</span> and <span class="math inline">\(s\)</span>, but it does not have any weights to learn.</p>
+<p>The same formula for computing the size of the output still works here: <span class="math display">\[\lfloor \frac{n+2p-f}{s} + 1\rfloor \times \lfloor \frac{n+2p-f}{s} + 1\rfloor \times n_c\]</span></p>
+</section>
+<section id="average-pooling" class="level4">
+<h4 class="anchored" data-anchor-id="average-pooling">Average Pooling</h4>
+<p>This is the same as max pooling, but taking the average of the region instead of the max.</p>
+<p>Note: padding is very rarely used in either max or average pooling</p>
+</section>
+<section id="convolutional-neural-network-example" class="level4">
+<h4 class="anchored" data-anchor-id="convolutional-neural-network-example">Convolutional Neural Network Example</h4>
+<p><img src="cnn-notes_files/figure-html/13327ef5-e9e7-4272-87da-8e330c3e528a-1-1ed5bbfe-2332-44b5-81f9-29e570b391fb.png" class="img-fluid" alt="image.png"> Normally, we put one or more convolutional layer (CONV) followed by a pooling layer (POOL), and repeat this pattern multiple times.</p>
+<p>When we are done with the convolutional layers, we ‘flatten’ them out and pass them through a few fully connected (FC) layers.</p>
+</section>
+<section id="why-convolutions" class="level4">
+<h4 class="anchored" data-anchor-id="why-convolutions">Why Convolutions?</h4>
+<ol type="1">
+<li>Parameter Sharing</li>
+<li>Sparcity of Connections</li>
+</ol>
+<p>Parameter sharing lets learned parameters to be used in multiple parts of the image. This drastically reduces the total number of parameters required in the neural network.</p>
+<p>Sparcity of Connections: since every output is calculated on a small section of the input at a time, it will be easier to learn the parameters.</p>
+</section>
+<section id="putting-it-all-together" class="level4">
+<h4 class="anchored" data-anchor-id="putting-it-all-together">Putting it all together</h4>
+<ol type="1">
+<li>Decide on an architecture</li>
+<li>Decide on a loss function <span class="math inline">\(L\)</span></li>
+<li>Randomly initialize all the weights and biases</li>
+<li>Use an optimizer (like gradient descent or Adam) to optimize the parameters</li>
+</ol>
+</section>
+</section>
+<section id="more-complicated-cnns" class="level3">
+<h3 class="anchored" data-anchor-id="more-complicated-cnns">More Complicated CNNs</h3>
+<section id="residual-blocks-resnets" class="level4">
+<h4 class="anchored" data-anchor-id="residual-blocks-resnets">Residual Blocks (ResNets)</h4>
+<p>Residual blocks get around the vanishing/exploding gradients problem in very deep NNs.</p>
+<p>They copy an activation from one layer and feed it into another layer deeper in the network.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cnn-notes_files/figure-html/914862a6-1b3c-4d50-bca3-b5e4390eb71a-1-b9ffb280-9944-4d1b-9895-2174f0a4d632.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image.png</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[a^{[l+2]} = g(z^{[l+2]} + a^{[l]})\]</span></p>
+<p>If you add more and more layers to a traditional FFNN, it can actually increase training error.</p>
+<p>Adding a ResNet layer doesn’t hurt training error because it is very easy for it to learn the identity function.</p>
+<p>One thing to note, is that <span class="math inline">\(a^{[l]}\)</span> and <span class="math inline">\(a^{[l+2]}\)</span> have to have the same dimension for the addition to work, so a lot of ‘same’ convolutions are used for this reason.</p>
+</section>
+<section id="x1-convolutions" class="level4">
+<h4 class="anchored" data-anchor-id="x1-convolutions">1x1 Convolutions</h4>
+<p>1x1 convolutions are used to change the number of channels, <span class="math inline">\(n_c\)</span>. For example, if you have a <span class="math inline">\(28 \times 28 \times 192\)</span> layer input, and want to reduce the number of channels to <span class="math inline">\(32\)</span> then you pass is through a <span class="math inline">\(1 \times 1\)</span> convolution with <span class="math inline">\(32\)</span> filters</p>
+</section>
+<section id="inception-layers" class="level4">
+<h4 class="anchored" data-anchor-id="inception-layers">Inception Layers</h4>
+<p>Inception layers can have multiple filter sizes and stack the outputs <img src="cnn-notes_files/figure-html/02573dcf-93b8-485e-80b5-16a9dba05509-1-36b2239b-ff64-4b30-93a4-e1f2cd1745b3.png" class="img-fluid" alt="image.png"></p>
+<p>This lets the model learn which of the filters are most useful and learns the correct parameters for them by itself.</p>
+<p>We can reduce the computational cost of inceptions layers by using a <span class="math inline">\(1 \times 1\)</span> convolution to calculate the <span class="math inline">\(5 \times 5\)</span> convolution. <img src="cnn-notes_files/figure-html/02573dcf-93b8-485e-80b5-16a9dba05509-3-a0e14435-fc83-4a7e-8c33-3b9e978291a7.png" class="img-fluid" alt="image.png"></p>
+<p>So long as you implement the bottleneck layer within reason, you retain a lot of the power of the original <span class="math inline">\(5 \times 5\)</span> convolution.</p>
+<p>We can do the same for the <span class="math inline">\(3 \times 3\)</span> convolution.</p>
+<p>The inception layer now looks like this. <img src="cnn-notes_files/figure-html/02573dcf-93b8-485e-80b5-16a9dba05509-2-7909a599-3f72-49e0-9bca-1f3e664b5fc7.png" class="img-fluid" alt="image.png"></p>
+<p>Although the maxpool layer gives the correct number of channels as output, it’s still significantly higher than the others, so we pass it through a <span class="math inline">\(1 \times 1\)</span> convolution with a smaller number of filters, for example <span class="math inline">\(32\)</span> so it takes up a more reasonable amount of the total channels.</p>
+</section>
+<section id="depthwise-separable-convolution" class="level4">
+<h4 class="anchored" data-anchor-id="depthwise-separable-convolution">Depthwise Separable Convolution</h4>
+<p><img src="cnn-notes_files/figure-html/2d76b22a-e51d-41aa-8f6b-716914751eef-2-4c2112a4-087e-4c46-b45f-dbd4e5e36c38.png" class="img-fluid" alt="image.png"> You first pass the input into a Depthwise Convolution and then into a Pointwise Convoluion.</p>
+<p><img src="cnn-notes_files/figure-html/2d76b22a-e51d-41aa-8f6b-716914751eef-1-4395babd-5b46-4d20-b24c-4592b8541e42.png" class="img-fluid" alt="image.png"> The depthwise convolution works as follows, you convolve each of the input channels with only the corresponding filter channel. The outputs give the outputs of each of the channels of the output.</p>
+<p><img src="cnn-notes_files/figure-html/2d76b22a-e51d-41aa-8f6b-716914751eef-3-b8bb822c-0f2f-46ac-b63e-751eacd9f8b8.png" class="img-fluid" alt="image.png"> For the pointwise convolution, you have <span class="math inline">\(n_c'\)</span> filters of size <span class="math inline">\(1 \times 1 \times n_c\)</span>. The output is calculated one channel at a time, using the calculated convolution between the input and each of the filters.</p>
+<p>Depthwise separable convolutions tend to be a lot faster than normal convolutions. The ratio of computation time is given by</p>
+<p><span class="math display">\[\frac{1}{n_c'} + \frac{1}{f^2}\]</span></p>
+</section>
+<section id="image-classification-localization-and-detection" class="level4">
+<h4 class="anchored" data-anchor-id="image-classification-localization-and-detection">Image Classification, Localization and Detection</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cnn-notes_files/figure-html/03fc2019-48c4-4e98-945d-b763053f8223-1-594187a2-23bc-4ac8-84ad-50be1f182367.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image.png</figcaption>
+</figure>
+</div>
+<p><strong>Image classification</strong>: Detecting presence or absense of an object</p>
+<p><strong>Classification with localization</strong>: Detects presence or absence of object <em>and gives its location</em></p>
+<p><strong>Detection</strong>: Gives locations of multiple objects in an image.</p>
+</section>
+<section id="classification-with-localization" class="level4">
+<h4 class="anchored" data-anchor-id="classification-with-localization">Classification with localization</h4>
+<p>To train a model to do classification with localization, your training data needs to have images as inputs and a vector <span class="math inline">\(y\)</span> as the label.</p>
+<p><span class="math display">\[ \begin{bmatrix}
+p_c \\
+b_x \\
+b_y \\
+b_h \\
+b_w \\
+c_1 \\
+c_2 \\
+c_3
+\end{bmatrix}
+\]</span></p>
+<p>The loss function <span class="math inline">\(L(\hat{y}, y)\)</span> can be defined using the squared error: <span class="math display">\[
+L(\hat{y}, y) =
+\begin{cases}
+(y_{\hat{1}} - y_1)^2 + (y_{\hat{2}} - y_2)^2 + \cdots + (y_{\hat{8}} - y_8)^2 &amp; \text{if } y_1 = 1, \\
+(y_{\hat{1}} - y_1)^2 &amp; \text{if } y_1 = 0.
+\end{cases}
+\]</span></p>
+</section>
+<section id="landmark-detection" class="level4">
+<h4 class="anchored" data-anchor-id="landmark-detection">Landmark Detection</h4>
+<p>The above method can also be used for landmark detection. By selecting multiple landmarks and labelling them with (for example in people’s faces), the model can learn to do landmark detection on new, unseen faces.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

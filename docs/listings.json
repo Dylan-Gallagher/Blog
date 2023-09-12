@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/cnn-notes/cnn-notes.html",
       "/posts/nascar-f1-classifier/NASCAR_F1_Classifier.html"
     ]
   }
