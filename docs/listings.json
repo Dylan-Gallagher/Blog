@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/maths-resources-for-ml/maths-resources-for-ml.html",
       "/posts/cnn-notes/cnn-notes.html",
       "/posts/nascar-f1-classifier/NASCAR_F1_Classifier.html"
     ]
